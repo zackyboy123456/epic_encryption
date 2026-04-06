@@ -7,6 +7,12 @@ def pad(data :bytes) ->bytes :
 
 def unpad(data :bytes) -> bytes:
     blocksize =16
+    pad =data[-1]
+    if pad < 1 or pad > blocksize:
+        raise ValueError("padding wrong")
 
+    else:
+        return data[:-pad]
 
+if __name__ == '__main__':
 
